@@ -25,9 +25,11 @@ In your project's Gruntfile, add a section named `coffeedoc` to the data object 
 ```js
 grunt.initConfig({
   coffeedoc: {
-    target: 'coffee sources directory',
-    options: {
-      // CoffeeDoc options
+    dist: {
+      target: 'coffee sources directory',
+      options: {
+        // CoffeeDoc options
+      }
     }
   }
 });
