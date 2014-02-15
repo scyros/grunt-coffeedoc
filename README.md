@@ -25,59 +25,71 @@ In your project's Gruntfile, add a section named `coffeedoc` to the data object 
 ```js
 grunt.initConfig({
   coffeedoc: {
+    target: 'coffee sources directory',
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+      // CoffeeDoc options
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.output
 Type: `String`
-Default value: `',  '`
+Default value: `'docs'`
 
-A string value that is used to do something with whatever.
+Set output directory.
 
-#### options.punctuation
+#### options.ignore
 Type: `String`
-Default value: `'.'`
+Default value: ``
 
-A string value that is used to do something else with whatever else.
+Files or directories to ignore.
+
+#### options.stdout
+Type: `String`
+
+If present, directs all output to stdout instead of files.
+
+#### options.hide-private
+Type: `String`
+
+If present, do not document methods beginning with an underscore.
+
+#### options.parser
+Type: `String`
+Default value: `commonjs`
+
+Parser to use. Built-in parsers: commonjs, requirejs.
+
+#### options.renderer
+Type: `String`
+Default value: `html`
+
+Renderer to use. Built-in renderers: html, gfm, json.
+
+#### options.indexTemplate
+Type: `String`
+
+Override the default index template for the selected renderer.
+
+#### options.moduleTemplate
+Type: `String`
+
+Override the default module template for the selected renderer.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
 ```js
 grunt.initConfig({
   coffeedoc: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  coffeedoc: {
+    target: 'src',
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+      output: 'doc',
+      parser: 'requirejs',
+      renderer: 'html'
+    }
   },
 });
 ```
