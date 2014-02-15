@@ -86,11 +86,13 @@ Override the default module template for the selected renderer.
 ```js
 grunt.initConfig({
   coffeedoc: {
-    target: 'src',
-    options: {
-      output: 'doc',
-      parser: 'requirejs',
-      renderer: 'html'
+    dist: {
+      target: 'src',
+      options: {
+        output: 'doc',
+        parser: 'requirejs',
+        renderer: 'html'
+      }
     }
   },
 });
